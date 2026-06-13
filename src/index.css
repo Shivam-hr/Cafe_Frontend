@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Playfair Display", Georgia, serif;
+
+  /* Light Mode — Elegant Aerial Palette */
+  --color-brand-primary: #EFE9E3;
+  /* warm tan */
+  --color-brand-secondary: #D9CFC7;
+  /* soft beige */
+  --color-brand-accent: #C9B59C;
+  /* vibrant ochre/amber */
+  --color-brand-accent-dark: #8B4513;
+  /* deep espresso brown */
+  --color-brand-accent-light: #D9CFC7;
+  /* warm sand */
+  --color-brand-gold: #B8860B;
+  /* antique gold */
+  --color-brand-bg: #EFE9E3;
+  /* soft cream */
+  --color-brand-surface: #D9CFC7;
+  --color-brand-text: #2C1810;
+  /* espresso black */
+  --color-brand-text-muted: #6B4C3B;
+  /* warm cocoa */
+  --color-brand-border: #C9B59C;
+  /* linen/tan border */
+
+  /* Dark Mode - Aroma Coffee Theme */
+  --color-dark-bg: #1a0f0a;
+  --color-dark-surface: #261510;
+  --color-dark-text: #ffffff;
+  --color-dark-accent: #c8860a;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+
+  body {
+    @apply bg-brand-bg text-brand-text font-sans antialiased transition-colors duration-300;
+    overflow-x: hidden;
+  }
+
+  .dark body {
+    @apply bg-dark-bg text-dark-text;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-sans);
+  }
+}
+
+/* Light mode section backgrounds */
+.section-light-cream {
+  background-color: #F2E8DC;
+}
+
+.section-light-white {
+  background-color: #FAF6F1;
+}
+
+.section-light-linen {
+  background-color: #E8D5BF;
+}
+
+.soft-shadow {
+  box-shadow: 0 4px 20px -2px rgba(44, 24, 16, 0.08);
+}
+
+.dark .soft-shadow {
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.3);
+}
+
+/* Premium card glow on hover */
+.card-hover {
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.card-hover:hover {
+  box-shadow: 0 12px 40px -8px rgba(139, 69, 19, 0.18);
+}
+
+.rounded-custom {
+  border-radius: 8px;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Accent gradient for headings */
+.accent-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.accent-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 60%;
+  height: 3px;
+  background: linear-gradient(90deg, #8B4513, #C4722A, transparent);
+  border-radius: 2px;
+}
+
+/* Warm gradient hero */
+.hero-gradient-light {
+  background: linear-gradient(135deg, #F2E8DC 0%, #EDD9C4 40%, #F5EFE7 100%);
+}
+
+/* Slow ambient pulse for the glow behind the coffee cup */
+@keyframes pulse-slow {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.05); }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 6s ease-in-out infinite;
+}
+
+/* Dark mode card glow on hover */
+.dark .card-hover:hover {
+  box-shadow: 0 12px 40px -8px rgba(200, 134, 10, 0.15);
+}
